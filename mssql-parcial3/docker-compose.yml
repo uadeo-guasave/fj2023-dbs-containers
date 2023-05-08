@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  db:
+    container_name: bdd2-mssql-parcial3
+    restart: unless-stopped
+    # para procesadores arm
+    image: mcr.microsoft.com/azure-sql-edge
+    cap_add: ['SYS_PTRACE']
+    # para procesadores basados en intel
+    # image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'Secret-2023'
+    ports:
+      - 1433:1433
+
+
